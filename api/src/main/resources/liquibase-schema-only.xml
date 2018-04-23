@@ -883,6 +883,8 @@
             <column name="country" type="varchar(50)"/>
             <column name="latitude" type="varchar(50)"/>
             <column name="longitude" type="varchar(50)"/>
+            <column name="altitude" type="varchar(50)"/>
+            <column name="accuracy" type="varchar(50)"/>
             <column defaultValueNumeric="0" name="creator" type="int">
                 <constraints nullable="false"/>
             </column>

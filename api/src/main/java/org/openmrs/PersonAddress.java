@@ -83,6 +83,10 @@ public class PersonAddress extends BaseChangeableOpenmrsData implements java.io.
 
 	private String longitude;
 	
+	private String altitude;
+
+	private String accuracy;
+	
 	private Date startDate;
 	
 	private Date endDate;
@@ -106,7 +110,8 @@ public class PersonAddress extends BaseChangeableOpenmrsData implements java.io.
 		return "a1:" + getAddress1() + ", a2:" + getAddress2() + ", cv:" +
 				getCityVillage() + ", sp:" + getStateProvince() + ", c:" + getCountry() +
 				", cd:" + getCountyDistrict() + ", nc:" + getAddress3() + ", pc:" +
-				getPostalCode() + ", lat:" + getLatitude() + ", long:" + getLongitude();
+				getPostalCode() + ", lat:" + getLatitude() + ", long:" + getLongitude() +
+				", alt:" + getAltitude() + ", acc:" + getAccuracy();
 	}
 	
 	/**
@@ -140,7 +145,9 @@ public class PersonAddress extends BaseChangeableOpenmrsData implements java.io.
 		    defaultString(otherAddress.getCountry()), defaultString(country)).append(
 		    defaultString(otherAddress.getPostalCode()), defaultString(postalCode)).append(
 		    defaultString(otherAddress.getLatitude()), defaultString(latitude)).append(
-		    defaultString(otherAddress.getLongitude()), defaultString(longitude)).append(otherAddress.getStartDate(),
+		    defaultString(otherAddress.getLongitude()), defaultString(longitude)).append(
+		    defaultString(otherAddress.getAltitude()), defaultString(altitude)).append(
+		    defaultString(otherAddress.getAccuracy()), defaultString(accuracy)).append(otherAddress.getStartDate(),
 		    startDate).append(otherAddress.getEndDate(), endDate).isEquals();
 	}
 	
@@ -280,6 +287,38 @@ public class PersonAddress extends BaseChangeableOpenmrsData implements java.io.
 	}
 	
 	/**
+	 * @return Returns the altitude.
+	 */
+	@Override
+	public String getAltitude() {
+		return altitude;
+	}
+	
+	/**
+	 * @param altitude The altitude to set.
+	 */
+	@Override
+	public void setAltitude(String altitude) {
+		this.altitude = altitude;
+	}
+	
+	/**
+	 * @return Returns the accuracy.
+	 */
+	@Override
+	public String getAccuracy() {
+		return accuracy;
+	}
+	
+	/**
+	 * @param accuracy The accuracy to set.
+	 */
+	@Override
+	public void setAccuracy(String accuracy) {
+		this.accuracy = accuracy;
+	}
+	
+	/**
 	 * @return Returns the person.
 	 */
 	public Person getPerson() {
@@ -370,7 +409,8 @@ public class PersonAddress extends BaseChangeableOpenmrsData implements java.io.
 		        && StringUtils.isBlank(getCityVillage()) && StringUtils.isBlank(getStateProvince())
 		        && StringUtils.isBlank(getCountry()) && StringUtils.isBlank(getCountyDistrict())
 		        && StringUtils.isBlank(getPostalCode()) && StringUtils.isBlank(getLatitude())
-		        && StringUtils.isBlank(getLongitude());
+		        && StringUtils.isBlank(getLongitude()) && StringUtils.isBlank(getAltitude())
+				&& StringUtils.isBlank(getAccuracy());
 		
 	}
 			

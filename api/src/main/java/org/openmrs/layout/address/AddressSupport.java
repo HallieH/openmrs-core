@@ -71,6 +71,8 @@ public class AddressSupport extends LayoutSupport<AddressTemplate> implements Gl
 			specialTokens.add("country");
 			specialTokens.add("latitude");
 			specialTokens.add("longitude");
+			specialTokens.add("altitude");
+			specialTokens.add("accuracy");
 			specialTokens.add("postalCode");
 			specialTokens.add("startDate");
 			specialTokens.add("endDate");

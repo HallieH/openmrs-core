@@ -67,6 +67,14 @@ public interface Address {
 	
 	public void setLongitude(String longitude);
 	
+	public String getAltitude();
+	
+	public void setAltitude(String altitude);
+	
+	public String getAccuracy();
+	
+	public void setAccuracy(String accuracy);
+	
 	/**
 	 * @since 2.0
 	 * @return the address7

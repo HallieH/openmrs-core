@@ -1166,6 +1166,8 @@
             <column name="country" value=""/>
             <column name="latitude"/>
             <column name="longitude"/>
+            <column name="altitude"/>
+            <column name="accuracy"/>
             <column name="creator" valueNumeric="1"/>
             <column name="date_created" valueDate="2005-09-22"/>
             <column name="county_district"/>

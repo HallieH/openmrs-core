@@ -50,6 +50,10 @@
 			column="latitude" length="50" />
 		<property name="longitude" type="java.lang.String"
 			column="longitude" length="50" />
+		<property name="altitude" type="java.lang.String"
+			column="altitude" length="50" />
+		<property name="accuracy" type="java.lang.String"
+			column="accuracy" length="50" />
 		<property name="countyDistrict" type="java.lang.String"
 			column="county_district" length="255" />
 		<property name="address3" type="java.lang.String"

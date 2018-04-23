@@ -172,6 +172,8 @@ public class PersonAddressValidatorTest extends BaseContextSensitiveTest {
 		personAddress.setCountry("country");
 		personAddress.setLatitude("latitude");
 		personAddress.setLongitude("longitude");
+		personAddress.setLatitude("altitude");
+		personAddress.setLongitude("accuracy");
 		personAddress.setVoidReason("voidReason");
 		personAddress.setCountyDistrict("countyDistrict");
 		personAddress.setAddress3("address3");
@@ -199,6 +201,8 @@ public class PersonAddressValidatorTest extends BaseContextSensitiveTest {
 		personAddress.setCountry(longString);
 		personAddress.setLatitude(longString);
 		personAddress.setLongitude(longString);
+		personAddress.setAltitude(longString);
+		personAddress.setAccuracy(longString);
 		personAddress.setVoidReason(longString);
 		personAddress.setCountyDistrict(longString);
 		personAddress.setAddress3(longString);

@@ -44,7 +44,7 @@ public class HibernateAdministrationDAOTest extends BaseContextSensitiveTest {
 		String[] LocationFields = new String[] { "name", "description", "address1", "address2", "address3", "address4",
 		        "address5", "address6", "address7", "address8", "address9", "address10", "address11", "address12",
 		        "address13", "address14", "address15", "cityVillage", "stateProvince", "country", "postalCode", "latitude",
-		        "longitude", "countyDistrict", "retireReason" };
+		        "longitude", "altitude", "accuracy", "countyDistrict", "retireReason" };
 		
 		String errorCode = "error.exceededMaxLengthOfField";
 		
@@ -71,6 +71,8 @@ public class HibernateAdministrationDAOTest extends BaseContextSensitiveTest {
 		location.setPostalCode(longString);
 		location.setLatitude(longString);
 		location.setLongitude(longString);
+		location.setAltitude(longString);
+		location.setAccuracy(longString);
 		location.setCountyDistrict(longString);
 		location.setRetireReason(longString);
 		

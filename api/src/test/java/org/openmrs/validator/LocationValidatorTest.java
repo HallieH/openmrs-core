@@ -154,6 +154,8 @@ public class LocationValidatorTest extends BaseContextSensitiveTest {
 		location.setPostalCode("postalCode");
 		location.setLatitude("latitude");
 		location.setLongitude("longitude");
+		location.setLatitude("altitude");
+		location.setLongitude("accuracy");
 		location.setCountyDistrict("countyDistrict");
 		location.setRetireReason("retireReason");
 		
@@ -193,6 +195,8 @@ public class LocationValidatorTest extends BaseContextSensitiveTest {
 		location.setPostalCode(longString);
 		location.setLatitude(longString);
 		location.setLongitude(longString);
+		location.setAltitude(longString);
+		location.setAccuracy(longString);
 		location.setCountyDistrict(longString);
 		location.setRetireReason(longString);
 		

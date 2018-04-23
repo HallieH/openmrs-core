@@ -51,6 +51,10 @@ public class Location extends BaseCustomizableMetadata<LocationAttribute> implem
 	
 	private String longitude;
 	
+	private String altitude;
+	
+	private String accuracy;
+	
 	private String countyDistrict;
 	
 	private String address3;
@@ -207,6 +211,38 @@ public class Location extends BaseCustomizableMetadata<LocationAttribute> implem
 	@Override
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
+	}
+	
+	/**
+	 * @return Returns the altitude.
+	 */
+	@Override
+	public String getAltitude() {
+		return altitude;
+	}
+	
+	/**
+	 * @param altitude The altitude to set.
+	 */
+	@Override
+	public void setAltitude(String altitude) {
+		this.altitude = altitude;
+	}
+	
+	/**
+	 * @return Returns the accuracy.
+	 */
+	@Override
+	public String getAccuracy() {
+		return accuracy;
+	}
+	
+	/**
+	 * @param accuracy The accuracy to set.
+	 */
+	@Override
+	public void setAccuracy(String accuracy) {
+		this.accuracy = accuracy;
 	}
 	
 	/**

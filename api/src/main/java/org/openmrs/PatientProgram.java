@@ -9,18 +9,20 @@
  */
 package org.openmrs;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.Collection;
-
 import org.openmrs.customdatatype.CustomValueDescriptor;
 import org.openmrs.customdatatype.Customizable;
 import org.openmrs.util.OpenmrsUtil;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * PatientProgram
@@ -189,6 +191,10 @@ public class PatientProgram extends BaseChangeableOpenmrsData implements Customi
 		newState.setPatientProgram(this);
 		newState.setState(programWorkflowState);
 		newState.setStartDate(onDate);
+
+		if (newState.getPatientProgram() != null && newState.getPatientProgram().getDateCompleted() != null) {
+			newState.setEndDate(newState.getPatientProgram().getDateCompleted());
+		}
 		
 		if (programWorkflowState.getTerminal()) {
 			setDateCompleted(onDate);
@@ -229,7 +235,9 @@ public class PatientProgram extends BaseChangeableOpenmrsData implements Customi
 			last.setVoidReason(voidReason);
 		}
 		if (nextToLast != null && nextToLast.getEndDate() != null) {
-			nextToLast.setEndDate(null);
+			nextToLast.setEndDate(nextToLast.getPatientProgram() != null
+			        && nextToLast.getPatientProgram().getDateCompleted() != null ? nextToLast.getPatientProgram()
+			        .getDateCompleted() : null);
 			nextToLast.setDateChanged(voidDate);
 			nextToLast.setChangedBy(voidBy);
 		}
@@ -275,6 +283,30 @@ public class PatientProgram extends BaseChangeableOpenmrsData implements Customi
 		return ret;
 	}
 	
+	/**
+	 * Returns a Set&lt;PatientState&gt; of all recent {@link PatientState}s for each workflow of the
+	 * {@link PatientProgram}
+	 *
+	 * @return Set&lt;PatientState&gt; of all recent {@link PatientState}s for the {@link PatientProgram}
+	 */
+	public Set<PatientState> getMostRecentStateInEachWorkflow() {
+		HashMap<ProgramWorkflow,PatientState> map = new HashMap<ProgramWorkflow,PatientState>();
+
+		for (PatientState state : getSortedStates()) {
+			if (!state.isVoided()) {
+				ProgramWorkflow workflow = state.getState().getProgramWorkflow();
+				map.put(workflow,state);
+			}
+		}
+
+		Set<PatientState> ret = new HashSet<>();
+		for (Map.Entry<ProgramWorkflow, PatientState> entry : map.entrySet()) {
+			ret.add(entry.getValue());
+		}
+
+		return ret;
+	}
+
 	/**
 	 * Returns a List&lt;PatientState&gt; of all {@link PatientState}s in the passed
 	 * {@link ProgramWorkflow} for the {@link PatientProgram}

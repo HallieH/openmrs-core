@@ -149,6 +149,26 @@ public class PersonAddressTest {
 	}
 	
 	@Test
+	public void equalsContent_shouldIndicateUnequalWhenOnlyAltitudeDiffers() {
+		PersonAddress address1 = new PersonAddress();
+		PersonAddress address2 = new PersonAddress();
+		address2.setAltitude("-23.33");
+		address1.setAltitude("43.3");
+		
+		assertThat(address2.equalsContent(address1), is(false));
+	}
+	
+	@Test
+	public void equalsContent_shouldIndicateUnequalWhenOnlyAccuracyDiffers() {
+		PersonAddress address1 = new PersonAddress();
+		PersonAddress address2 = new PersonAddress();
+		address2.setAccuracy("-23.33");
+		address1.setAccuracy("43.3");
+		
+		assertThat(address2.equalsContent(address1), is(false));
+	}
+	
+	@Test
 	public void equalsContent_shouldIndicateUnequalWhenOnlyStartDateDiffers() {
 		PersonAddress address1 = new PersonAddress();
 		PersonAddress address2 = new PersonAddress();

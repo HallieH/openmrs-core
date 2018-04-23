@@ -75,6 +75,8 @@ public class LocationServiceTest extends BaseContextSensitiveTest {
 		location.setPostalCode("post");
 		location.setLatitude("lat");
 		location.setLongitude("lon");
+		location.setAltitude("alt");
+		location.setAccuracy("acc");
 		
 		LocationService ls = Context.getLocationService();
 		ls.saveLocation(location);
